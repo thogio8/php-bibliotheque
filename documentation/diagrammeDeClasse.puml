@@ -1,0 +1,46 @@
+@startuml
+
+abstract class "Média" as M{
+    # titre : chaine
+    # duréeEmprunt : date
+}
+
+class "Livre" as L{
+    # isbn : chaine
+    # auteur : chaine
+    # nbPages : entier
+}
+
+class "Blu-Ray" as BR{
+    # réalisateur : chaine
+    # durée : chaine
+    # anneeSortie : chaine
+}
+
+class "Magazine" as Ma{
+    # numéroMagazine : entier
+    # datePublication : date
+}
+
+class "Adhérent" as A{
+    # numeroAdherent : chaine
+    # prenom : chaine
+    # nom : chaine
+    # email : chaine
+    # dateAdhésion : date
+}
+
+class "Emprunt" as E{
+    # numéroEmprunt : entier
+    # dateEmprunt : date
+    # dateRetour : date
+}
+
+M <|-- L
+M <|-- BR
+M <|-- Ma
+M "1..1" <-- "              0..*"E : est emprunté >
+A "1..1" <-- "0..*"E : emprunte >
+
+
+@enduml
