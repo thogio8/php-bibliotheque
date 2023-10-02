@@ -57,3 +57,41 @@ if(strspn(substr($adherent5->getNumeroAdherent(), 3),"0123456789") !== strlen($a
 } else {
     echo RED."[NOT OK]".RESET.PHP_EOL;
 }
+
+echo "Test : vérifier que l’adhésion est valable (valide) quand la date d’adhésion n’est pas dépassée (moins d’un an) \n";
+//Arrange
+$adherent6 = new \App\Adherent("Thomas", "Gioana", "thomas.gioana@gmail.com", "08/11/2022");
+//Act
+$resultat = $adherent6->adhesionValable();
+//Assertion
+if($resultat){
+    echo GREEN."[OK]".RESET.PHP_EOL;
+} else {
+    echo RED."[NOT OK]".RESET.PHP_EOL;
+}
+
+echo "Test : vérifier que l’adhésion est non valable (invalide) quand la date d’adhésion est dépassée (plus d’un an) \n";
+//Arrange
+$adherent6 = new \App\Adherent("Thomas", "Gioana", "thomas.gioana@gmail.com", "08/11/2020");
+//Act
+$resultat = $adherent6->adhesionValable();
+//Assertion
+if(!$resultat){
+    echo GREEN."[OK]".RESET.PHP_EOL;
+} else {
+    echo RED."[NOT OK]".RESET.PHP_EOL;
+}
+
+echo "Test : vérifier que l'adhésion est renouvelée \n";
+//Arrange
+$dateAdhesion = "21/07/2021";
+$dateAdhesionClone = $dateAdhesion;
+$adherent7 = new \App\Adherent("Thomas", "Gioana", "thomas.gioana@gmail.com", $dateAdhesion);
+//Act
+$adherent7->renouvelerAdhesion();
+//Assertion
+if($adherent7->getDateAdhesion() != $dateAdhesionClone){
+    echo GREEN."[OK]".RESET.PHP_EOL;
+} else {
+    echo RED."[NOT OK]".RESET.PHP_EOL;
+}

@@ -1,16 +1,12 @@
 {
-    "name": "gioanat/php-bibliotheque",
+    "name": "zsder/php-bibliotheque",
     "type": "project",
+    "require": {
+
+    },
     "autoload": {
         "psr-4": {
-            "App\\": "src"
+            "App\\": "src/"
         }
-    },
-    "authors": [
-        {
-            "name": "Thomas Gioana",
-            "email": "thomas.gioana@gmail.com"
-        }
-    ],
-    "require": {}
+    }
 }

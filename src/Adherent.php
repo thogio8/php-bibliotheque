@@ -2,11 +2,11 @@
 
 namespace App;
 class Adherent{
-    protected string $numeroAdherent;
-    protected string $prenom;
-    protected string $nom;
-    protected string $email;
-    protected \DateTime $dateAdhesion;
+    private string $numeroAdherent;
+    private string $prenom;
+    private string $nom;
+    private string $email;
+    private \DateTime $dateAdhesion;
 
     /**
      * @param string $prenom
@@ -27,14 +27,22 @@ class Adherent{
         $this->numeroAdherent = $this->genererNumero();
     }
 
-    protected function genererNumero() : string {
+    private function genererNumero() : string {
         $numeroAleatoire = rand(0, 999999);
         $numeroAleatoire = str_pad(strval($numeroAleatoire), 6, '0', STR_PAD_LEFT);
         return "AD-".$numeroAleatoire;
     }
 
+    public function renouvelerAdhesion() : void{
+        $this->dateAdhesion->add(new \DateInterval("P1Y"));
+    }
 
-
+    public function adhesionValable() : bool {
+        if($this->dateAdhesion->add(new \DateInterval("P1Y")) > new \DateTime()){
+            return true;
+        }
+        return false;
+    }
 
     public function getNumeroAdherent(): string
     {
