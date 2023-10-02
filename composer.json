@@ -1,8 +1,9 @@
 {
     "name": "gioanat/php-bibliotheque",
+    "type": "project",
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src"
         }
     },
     "authors": [

@@ -3,37 +3,46 @@
 abstract class "Média" as M{
     # titre : chaine
     # duréeEmprunt : date
+    + informationsMedia() : string
 }
 
 class "Livre" as L{
-    # isbn : chaine
-    # auteur : chaine
-    # nbPages : entier
+    - isbn : chaine
+    - auteur : chaine
+    - nbPages : entier
 }
 
 class "Blu-Ray" as BR{
-    # réalisateur : chaine
-    # durée : chaine
-    # anneeSortie : chaine
+    - réalisateur : chaine
+    - durée : chaine
+    - anneeSortie : chaine
 }
 
 class "Magazine" as Ma{
-    # numéroMagazine : entier
-    # datePublication : date
+    - numéroMagazine : entier
+    - datePublication : date
 }
 
 class "Adhérent" as A{
-    # numeroAdherent : chaine
-    # prenom : chaine
-    # nom : chaine
-    # email : chaine
-    # dateAdhésion : date
+    - numeroAdherent : chaine
+    - prenom : chaine
+    - nom : chaine
+    - email : chaine
+    - dateAdhésion : date
+    - genererNumero() : chaine
+    + renouvelerAdhésion() : vide
+    + infosAdhérent() : chaine
+    + adhesionValable() : booleen
 }
 
 class "Emprunt" as E{
-    # numéroEmprunt : entier
-    # dateEmprunt : date
-    # dateRetour : date
+    - numéroEmprunt : entier
+    - dateEmprunt : date
+    - dateRetour : date
+    + infosEmprunt() : chaine
+    + enCours() : booleen
+    + enAlerte() : booleen
+    + estDepasse() : booleen
 }
 
 M <|-- L
