@@ -3,7 +3,7 @@
 abstract class "Média" as M{
     # titre : chaine
     # duréeEmprunt : date
-    + informationsMedia() : string
+    + {abstract} informationsMedia() : string
 }
 
 class "Livre" as L{
