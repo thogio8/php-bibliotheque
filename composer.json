@@ -2,7 +2,7 @@
     "name": "zsder/php-bibliotheque",
     "type": "project",
     "require": {
-
+        "symfony/var-dumper": "^6.3"
     },
     "autoload": {
         "psr-4": {

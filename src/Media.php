@@ -9,12 +9,10 @@ abstract class Media
 
     /**
      * @param string $titre
-     * @param int $dureeEmprunt
      */
-    public function __construct(string $titre, int $dureeEmprunt)
+    public function __construct(string $titre)
     {
         $this->titre = $titre;
-        $this->dureeEmprunt = $dureeEmprunt;
     }
 
     abstract public function informationsMedia() : string;

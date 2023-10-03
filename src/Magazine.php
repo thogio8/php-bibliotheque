@@ -7,9 +7,9 @@ class Magazine extends Media
     private int $numeroMagazine;
     private \DateTime $datePublication;
 
-    public function __construct(int $numeroMagazine, string $datePublication ,string $titre, int $dureeEmprunt)
+    public function __construct(int $numeroMagazine, string $datePublication ,string $titre)
     {
-        parent::__construct($titre, $dureeEmprunt);
+        parent::__construct($titre);
         $this->dureeEmprunt = 10;
         $this->numeroMagazine = $numeroMagazine;
         $this->datePublication = \DateTime::createFromFormat("d/m/Y", $datePublication);
