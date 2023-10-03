@@ -41,6 +41,7 @@ class "Emprunt" as E{
     - dateRetourEstimée : date
     - dateRetourReel : date
     + infosEmprunt() : chaine
+    + renduMedia() : vide
     + enCours() : booleen
     + enAlerte() : booleen
     + estDepasse() : booleen

@@ -85,7 +85,7 @@ $emprunt7 = new \App\Emprunt($adherent, $livre);
 //Act
 $emprunt7->renduMedia("28/10/2050");
 //Assert
-if($emprunt7->getDateRetourReel() > $emprunt7->getDateRetourEstimee()){
+if($emprunt7->estDepasse()){
     echo GREEN."[OK]".RESET.PHP_EOL;
 } else {
     echo RED."[NOT OK]".RESET.PHP_EOL;

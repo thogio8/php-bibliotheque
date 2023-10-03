@@ -37,6 +37,10 @@ class Adherent{
         $this->dateAdhesion->add(new \DateInterval("P1Y"));
     }
 
+    public function infosAdherent() : string {
+        return "L'adhérent {$this->prenom} {$this->nom} a adhéré le {$this->dateAdhesion} et a le numéro {$this->numeroAdherent}";
+    }
+
     public function adhesionValable() : bool {
         if($this->dateAdhesion->add(new \DateInterval("P1Y")) > new \DateTime()){
             return true;
@@ -68,8 +72,4 @@ class Adherent{
     {
         return $this->dateAdhesion;
     }
-
-
-
-
 }

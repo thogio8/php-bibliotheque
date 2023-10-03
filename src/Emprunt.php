@@ -31,8 +31,8 @@ class Emprunt
         return "Emprunt numero {$this->numeroEmprunt} : L'emprunt concerne le media {$this->media->getTitre()}. Le média a été emprunté le {$this->dateEmprunt} et doit être rendu avant le {$this->dateRetourEstimee}";
     }
 
-    //Ajout d'un paramètre pour pouvoir tester dans le cas ou un media est rendu après
-    public function renduMedia(?string $dateRetourPourTest = null): void
+
+    public function renduMedia(?string $dateRetourPourTest = null): void  //Ajout d'un paramètre pour pouvoir tester dans le cas ou un media est rendu après la date de retour estimée
     {
         if (isset($dateRetourPourTest)) {
             $this->dateRetourReel = \DateTime::createFromFormat("d/m/Y", $dateRetourPourTest);
@@ -52,6 +52,14 @@ class Emprunt
     public function enAlerte(): bool
     {
         if ($this->enCours() && $this->dateRetourEstimee > new \DateTime()) {
+            return true;
+        }
+        return false;
+    }
+
+    public function estDepasse(): bool
+    {
+        if (!$this->enCours() && $this->dateRetourEstimee < $this->dateRetourReel) {
             return true;
         }
         return false;
@@ -87,12 +95,5 @@ class Emprunt
         return $this->media;
     }
 
-    public function estDepasse(): bool
-    {
-        if (!$this->enCours() && $this->dateRetourEstimee > $this->dateRetourReel) {
-            return true;
-        }
-        return false;
-    }
 
 }
