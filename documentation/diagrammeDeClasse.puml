@@ -2,7 +2,7 @@
 
 abstract class "Média" as M{
     # titre : chaine
-    # duréeEmprunt : date
+    # duréeEmprunt : entier
     + {abstract} informationsMedia() : string
 }
 
@@ -38,7 +38,8 @@ class "Adhérent" as A{
 class "Emprunt" as E{
     - numéroEmprunt : entier
     - dateEmprunt : date
-    - dateRetour : date
+    - dateRetourEstimée : date
+    - dateRetourReel : date
     + infosEmprunt() : chaine
     + enCours() : booleen
     + enAlerte() : booleen
