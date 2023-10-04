@@ -42,7 +42,7 @@ echo "Test : Vérifier que la chaine commence par 'AD-'\n";
 //Arrange
 $adherent4 = new \App\Adherent("Thomas", "Gioana", "thomas.gioana@gmail.com", "08/11/2022");
 //Assertion
-if(substr($adherent4->getNumeroAdherent(),0,3)){
+if(str_starts_with($adherent4->getNumeroAdherent(), "AD-")){
     echo GREEN."[OK]".RESET.PHP_EOL;
 } else {
     echo RED."[NOT OK]".RESET.PHP_EOL;
@@ -52,7 +52,7 @@ echo "Test : Vérifier que la partie numerique est composé uniquement de chiffr
 //Arrange
 $adherent5 = new \App\Adherent("Thomas", "Gioana", "thomas.gioana@gmail.com", "08/11/2022");
 //Assertion
-if(strspn(substr($adherent5->getNumeroAdherent(), 3),"0123456789") !== strlen($adherent5->getNumeroAdherent())){
+if(strspn(substr($adherent5->getNumeroAdherent(), 3),"0123456789") === 6){
     echo GREEN."[OK]".RESET.PHP_EOL;
 } else {
     echo RED."[NOT OK]".RESET.PHP_EOL;

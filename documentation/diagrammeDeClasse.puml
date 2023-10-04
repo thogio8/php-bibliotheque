@@ -47,11 +47,21 @@ class "Emprunt" as E{
     + estDepasse() : booleen
 }
 
+class "Bibliothèque" as B{
+    - nom : chaine
+    + inscrireAdherent() : vide
+    + ajouterMedia() : vide
+    + creerEmprunt() : vide
+}
+
 M <|-- L
 M <|-- BR
 M <|-- Ma
 M "1..1" <-- "              0..*"E : est emprunté >
 A "1..1" <-- "0..*"E : emprunte >
+B --> "0..*"M : possède >
+B --> "0..*"E : gère >
+B --> "0..*"A : adhère a <
 
 
 @enduml
